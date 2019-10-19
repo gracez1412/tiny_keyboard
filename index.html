@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="utf-8" />
+	<meta name="apple-touch-fullscreen" content="yes" />
+	<meta name="format-detection" contect="telephone=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+	<meta name="viewport" content="width=device-width, user-scalable=no,
+		shrink-to-fit=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+
+	<title>Basic Template App</title>
+
+	<style>
+		@import 'ui/css/keys.css';
+	</style>
+
+	<script>
+	// Redirect console.log to Evothings Workbench.
+	if (window.hyper && window.hyper.log) { console.log = hyper.log }
+	</script>
+
+</head>
+
+<body ontouchstart=""><!-- ontouchstart="" enables low-delay CSS transitions. -->
+
+	<header>
+		<button class="back" onclick="history.back()">
+			<img src="ui/images/arrow-left.svg" />
+		</button>
+
+
+		<!--<button class="menu" onclick=""><img src="ui/images/menu.svg" /></button>-->
+	</header>
+
+
+	<div class="text_entry" id="touch"></div>
+
+	<div class="keyboard_container">
+		<div class="cell">w</div>
+		<div class="cell">e</div>
+		<div class="cell">r</div>
+		<div class="cell">t</div>
+		<div class="cell">y</div>
+		<div class="cell">u</div>
+		<div class="cell">i</div>
+		<div class="cell">o</div>
+		<div class="cell">p</div> 
+		<div class="cell">a</div>
+		<div class="cell">s</div>
+		<div class="cell">d</div>
+		<div class="cell">f</div>
+		<div class="cell">g</div>
+		<div class="cell">h</div>
+		<div class="cell">j</div>
+		<div class="cell">k</div>
+		<div class="cell">l</div> 
+		<div class="cell">z</div>
+		<div class="cell">x</div>
+		<div class="cell">c</div>
+		<div class="cell">v</div>
+		<div class="cell">b</div>
+		<div class="cell">n</div>
+		<div class="cell">m</div>
+		<div class="cell">q</div>
+		<div class="cell"></div> 
+	</div>
+
+	<div class="square" id="input">
+		<div class="input_container" id="z_1" style="display: none;">
+			<div class="cell" onclick="add_char(this.innerHTML)">w</div>
+			<div class="cell" onclick="add_char(this.innerHTML)">e</div>
+			<div class="cell" onclick="add_char(this.innerHTML)">r</div>
+			<div class="cell" onclick="add_char(this.innerHTML)">a</div>
+			<div class="cell" onclick="add_char(this.innerHTML)">s</div>
+			<div class="cell" onclick="add_char(this.innerHTML)">d</div>
+		</div>
+	
+		<div class="input_container" id="z_2" style="display: none;">
+			<div class="cell" onclick="add_char(this.innerHTML)">a</div>
+			<div class="cell" onclick="add_char(this.innerHTML)">s</div>
+			<div class="cell" onclick="add_char(this.innerHTML)">d</div>
+			<div class="cell" onclick="add_char(this.innerHTML)">z</div>
+			<div class="cell" onclick="add_char(this.innerHTML)">x</div>
+			<div class="cell" onclick="add_char(this.innerHTML)">c</div>
+		</div>
+		
+		<div class="input_container" id="z_3" style="display: none;">
+			<div class="cell" onclick="add_char(this.innerHTML)">t</div>
+			<div class="cell" onclick="add_char(this.innerHTML)">y</div>
+			<div class="cell" onclick="add_char(this.innerHTML)">u</div>
+			<div class="cell" onclick="add_char(this.innerHTML)">f</div>
+			<div class="cell" onclick="add_char(this.innerHTML)">g</div>
+			<div class="cell" onclick="add_char(this.innerHTML)">h</div>
+		</div>
+	
+		<div class="input_container" id="z_4" style="display: none;">
+			<div class="cell" onclick="add_char(this.innerHTML)">f</div>
+			<div class="cell" onclick="add_char(this.innerHTML)">g</div>
+			<div class="cell" onclick="add_char(this.innerHTML)">h</div>
+			<div class="cell" onclick="add_char(this.innerHTML)">v</div>
+			<div class="cell" onclick="add_char(this.innerHTML)">b</div>
+			<div class="cell" onclick="add_char(this.innerHTML)">n</div>
+		</div>
+	
+		<div class="input_container" id="z_5" style="display: none;">
+			<div class="cell" onclick="add_char(this.innerHTML)">i</div>
+			<div class="cell" onclick="add_char(this.innerHTML)">o</div>
+			<div class="cell" onclick="add_char(this.innerHTML)">p</div>
+			<div class="cell" onclick="add_char(this.innerHTML)">j</div>
+			<div class="cell" onclick="add_char(this.innerHTML)">k</div>
+			<div class="cell" onclick="add_char(this.innerHTML)">l</div>
+		</div>
+	
+		<div class="input_container" id="z_6" style="display: none;">
+			<div class="cell" onclick="add_char(this.innerHTML)">j</div>
+			<div class="cell" onclick="add_char(this.innerHTML)">k</div>
+			<div class="cell" onclick="add_char(this.innerHTML)">l</div>
+			<div class="cell" onclick="add_char(this.innerHTML)">m</div>
+			<div class="cell" onclick="add_char(this.innerHTML)">q</div>
+			<div class="cell" onclick="add_char(this.innerHTML)"> </div>
+		</div>
+	</div>
+
+	<script src="cordova.js"></script>
+	<script src="libs/evothings/evothings.js"></script>
+	<script src="libs/evothings/ui/ui.js"></script>
+	<script src="keyboard.js"></script>
+	<!-- TODO: Add libraries that you need -->
+
+	<script>
+
+		var current_screen = 3;
+
+		function add_char (char)
+		{
+			document.getElementById("touch").innerHTML += char;
+		}
+
+		function change_screen (dir, current)
+		{
+			console.log("Entered change!");
+			var new_screen = Number(current);
+			switch(dir)
+			{
+				case "up": 
+				case "down":
+					new_screen = new_screen + -1 + 2*(new_screen%2);
+					console.log("new screen" + new_screen);
+					break;
+				case "right":
+					new_screen = (new_screen + 2)%6;
+					if (new_screen == 0)
+						new_screen = 6;
+					console.log("new screen" + new_screen);
+					break;
+				case "left":
+					new_screen = (new_screen + 4)%6;
+					if (new_screen == 0)
+						new_screen = 6;
+					console.log("new screen" + new_screen);
+					break;
+				case "BR->TL":
+					if (new_screen % 2 == 0)
+						new_screen = (new_screen + 3)%6;
+					if (new_screen == 0)
+						new_screen = 6;
+					break;
+				case "BL->TR":
+					if (new_screen % 2 == 0)
+						new_screen = (new_screen + 1)%6;
+					if (new_screen == 0)
+						new_screen = 6;
+					break;
+				case "TR->BL":
+					if (new_screen % 2 == 1)
+						new_screen = (new_screen + 5)%6;
+					if (new_screen == 0)
+						new_screen = 6;
+					break;
+				case "TL->BR":
+					if (new_screen % 2 == 1)
+						new_screen = (new_screen + 3)%6;
+					if (new_screen == 0)
+						new_screen = 6;
+					break;
+			}
+			current_screen = new_screen;
+			document.getElementById("z_" + current.toString()).style.display = "none";
+			document.getElementById("z_" + new_screen.toString()).style.display = "grid";
+		}
+
+		function detect_swipe ()
+		{
+			document.addEventListener('touchstart', touch, false);
+			document.addEventListener('touchmove', touch, false);
+			document.addEventListener('touchend', touch, false);
+
+			var init_x, init_y, curr_x, curr_y, fin_x, fin_y;
+			var init_x2, init_y2, curr_x2, curr_y2, fin_x2, fin_y2;
+			var del_x, del_y;
+			var del_x2, del_y2;
+			var valid = true;
+			var twoTouch = false;
+
+			function compute_dir (valid, init_x, init_y, fin_x, fin_y)
+			{
+				var local = document.getElementById("touch");
+
+				// Determine single finger swipe direction, if within 2x2 area
+				if (valid)
+				{
+					var thresh_up = 30;
+					var thres_down = 15;
+
+					// Compute delta b/w init and final coordinates
+					del_x = fin_x - init_x;
+					del_y = fin_y - init_y;
+
+					if (del_x >= thresh_up && Math.abs(del_y) <= thres_down)
+					{
+						// Right swipe
+						change_screen("right",current_screen);
+					}
+					else if (del_x <= -thresh_up && Math.abs(del_y) <= thres_down)
+					{
+						// Left swipe
+						change_screen("left",current_screen);
+					}
+					else if (Math.abs(del_x) <= thres_down && del_y <= -thresh_up)
+					{
+						// Up swipe
+						change_screen("up",current_screen);
+					}
+					else if (Math.abs(del_x) <= thres_down && del_y >= thresh_up)
+					{
+						// Down swipe
+						change_screen("down",current_screen);
+					}
+					else if (del_x >= thresh_up && del_y <= -thresh_up)
+					{
+						// Diagonal swipe (LB -> RT)
+						change_screen("BL->TR",current_screen);
+					}
+					else if (del_x <= -thresh_up && del_y <= -thresh_up)
+					{
+						// Diagonal swipe (RB -> LT)
+						change_screen("BR->TL",current_screen);
+					}
+					else if (del_x >= thresh_up && del_y >= thresh_up)
+					{
+						// Diagonal swipe (LT -> RB)
+						change_screen("TL->BR",current_screen);
+					}
+					else if (del_x <= -thresh_up && del_y >= thresh_up)
+					{
+						// Diagonal swipe (RT -> LB)
+						change_screen("TR->BL",current_screen);
+					}
+				}
+				else
+				{
+					// Reset valid toggle if false
+					valid = true;
+				}
+			}
+
+			function compute_2dir (valid, init_x, init_y, fin_x, fin_y, init_x2, init_y2, fin_x2, fin_y2)
+			{
+				var local = document.getElementById("touch");
+
+				// Determine two finger swipe direction, if within 2x2 area
+				if (valid)
+				{
+					var thresh_up = 15;
+					var thres_down = 10;
+
+					// Compute delta b/w init and final coordinates
+					del_x = fin_x - init_x;
+					del_y = fin_y - init_y;
+					del_x2 = fin_x2 - init_x2;
+					del_y2 = fin_y2 - init_y2;
+
+					if (del_x >= thresh_up && Math.abs(del_y) <= thres_down && del_x2 >= thresh_up && Math.abs(del_y2) <= thres_down)
+					{
+						// Right swipe w/ 2 finger
+						local.innerHTML="RIGHT (2)";
+						// var varSlid = "A"+i;
+      //     				$('.demo').append('<div id= ' + varSlid  + '></div></br>');
+					}
+					else if (del_x <= -thresh_up && Math.abs(del_y) <= thres_down && del_x2 <= -thresh_up && Math.abs(del_y2) <= thres_down)
+					{
+						// Left swipe w/ 2 finger
+						local.innerHTML="LEFT (2)";
+					}
+					else if (Math.abs(del_x) <= thres_down && del_y <= -thresh_up && Math.abs(del_x2) <= thres_down && del_y2 <= -thresh_up)
+					{
+						// Up swipe w/ 2 finger
+						local.innerHTML="UP (2)";
+					}
+					else if (Math.abs(del_x) <= thres_down && del_y >= thresh_up && Math.abs(del_x2) <= thres_down && del_y2 >= thresh_up)
+					{
+						// Down swipe w/ 2 finger
+						local.innerHTML="DOWN (2)";
+					}
+					// else if (del_x >= thresh_up && del_y <= -thresh_up && del_x2 >= thresh_up && del_y2 <= -thresh_up)
+					// {
+					// 	// Diagonal swipe (LB -> RT) w/ 2 finger
+					// 	local.innerHTML="LB->RT (2)";
+					// }
+					// else if (del_x <= -thresh_up && del_y <= -thresh_up && del_x2 <= -thresh_up && del_y2 <= -thresh_up)
+					// {
+					// 	// Diagonal swipe (RB -> LT) w/ 2 finger
+					// 	local.innerHTML="RB->LT (2)";
+					// }
+					// else if (del_x >= thresh_up && del_y >= thresh_up && del_x2 >= thresh_up && del_y2 >= thresh_up)
+					// {
+					// 	// Diagonal swipe (LT -> RB) w/ 2 finger
+					// 	local.innerHTML="LT->RB (2)";
+					// }
+					// else if (del_x <= -thresh_up && del_y >= thresh_up && del_x2 <= -thresh_up && del_y2 >= thresh_up)
+					// {
+					// 	// Diagonal swipe (RT -> LB) w/ 2 finger
+					// 	local.innerHTML="RT->LB (2)";
+					// }
+				}
+				else
+				{
+					// Reset valid toggle if false
+					valid = true;
+				}
+			}
+			
+
+			function touch (event)
+			{
+				var event = event || window.event;
+				//var local = document.getElementById("touch");
+
+				switch(event.type)
+				{
+					case "touchstart":
+						if(event.touches.length > 1)
+						{
+							// Two finger swipe
+							twoTouch = true;
+							init_x = event.touches[0].clientX;
+							init_y = event.touches[0].clientY;
+							init_x2 = event.touches[1].clientX;
+							init_y2 = event.touches[1].clientY;
+							if ((init_x < 140 || init_x > 275) || (init_y < 520 || init_y > 650) || 
+								(init_x2 < 140 || init_x2 > 275) || (init_y2 < 520 || init_y2 > 650))
+							{
+								// Touch invalid if outside 2x2 area
+								valid = false;
+							}
+							else
+							{
+								// Otherwise, touch valid
+								valid = true;
+							}
+						}
+						else
+						{
+							// Single finger swipe
+							twoTouch = false;
+							init_x = event.touches[0].clientX;
+							init_y = event.touches[0].clientY;
+							if ((init_x < 140 || init_x > 275) || (init_y < 520 || init_y > 650))
+							{
+								// Touch invalid if outside 2x2 area
+								valid = false;
+							}
+							else
+							{
+								// Otherwise, touch valid
+								valid = true;
+							}
+						}
+						// local.innerHTML="Touchstart (" + event.targetTouches[0].clientX + "," + event.targetTouches[0].clientY + ")";
+						break;
+					case "touchmove":
+						event.preventDefault();
+						if(twoTouch)
+						{
+							// Two finger swipe
+							curr_x = event.touches[0].clientX;
+							curr_y = event.touches[0].clientY;
+							curr_x2 = event.touches[1].clientX;
+							curr_y2 = event.touches[1].clientY;
+							if ((curr_x < 140 || curr_x > 275) || (curr_y < 520 || curr_y > 650) || 
+								(curr_x2 < 140 || curr_x2 > 275) || (curr_y2 < 520 || curr_y2 > 650))
+							{
+								// Touch invalid if outside 2x2 area
+								valid = false;
+							}
+							else
+							{
+								// Otherwise, touch valid
+								valid = true;
+							}
+						}
+						else
+						{
+							// Single finger swipe
+							curr_x = event.touches[0].clientX;
+							curr_y = event.touches[0].clientY;
+							if ((curr_x < 140 || curr_x > 275) || (curr_y < 520 || curr_y > 650))
+							{
+								// Touch invalid if outside 2x2 area
+								valid = false;
+							}
+							else
+							{
+								// Otherwise, touch valid
+								valid = true;
+							}
+						}
+						// local.innerHTML="Touchmove (" + event.targetTouches[0].clientX + "," + event.targetTouches[0].clientY + ")";
+						break;
+					case "touchend":
+						// local.innerHTML="STOP! (" + event.changedTouches[0].clientX + "," + event.changedTouches[0].clientY + ")";
+						if(twoTouch)
+						{
+							// Two finger swipe
+							fin_x = event.changedTouches[0].clientX;
+							fin_y = event.changedTouches[0].clientY;
+							if ((fin_x < 140 || fin_x > 275) || (fin_y < 520 || fin_y > 650) || 
+								(curr_x2 < 140 || curr_x2 > 275) || (curr_y2 < 520 || curr_y2 > 650))
+							{
+								// Touch invalid if outside 2x2 area
+								valid = false;
+							}
+							else
+							{
+								// Otherwise, touch valid
+								valid = true;
+							}
+
+							// Compute direction of two finger swipe, if valid
+							compute_2dir(valid, init_x, init_y, fin_x, fin_y, init_x2, init_y2, curr_x2, curr_y2);
+						}
+						else
+						{
+							// Single finger swipe
+							fin_x = event.changedTouches[0].clientX;
+							fin_y = event.changedTouches[0].clientY;
+							if ((fin_x < 140 || fin_x > 275) || (fin_y < 520 || fin_y > 650))
+							{
+								// Touch invalid if outside 2x2 area
+								valid = false;
+							}
+							else
+							{
+								// Otherwise, touch valid
+								valid = true;
+							}
+
+							// Compute direction of swipe, if valid
+							compute_dir(valid, init_x, init_y, fin_x, fin_y);
+						}
+						break;
+				}
+			}
+		}
+
+		window.addEventListener('load',
+								function () {
+									detect_swipe();
+									document.getElementById("z_3").style.display = "grid";
+									document.getElementById("z_1").style.display = "none";
+									document.getElementById("z_2").style.display = "none";
+									document.getElementById("z_4").style.display = "none";
+									document.getElementById("z_5").style.display = "none";
+									document.getElementById("z_6").style.display = "none";
+								}, false)
+	</script>
+
+
+</body>
+
+</html>
