@@ -70,58 +70,58 @@
 	</div>
 
 	<div class="square" id="input">
-		<div class="input_container" id="1" style="display: none;">
-			<div class="cell">w</div>
-			<div class="cell">e</div>
-			<div class="cell">r</div>
-			<div class="cell">a</div>
-			<div class="cell">s</div>
-			<div class="cell">d</div>
+		<div class="input_container" id="z_1" style="display: none;">
+			<div class="cell" onclick="add_char(this.innerHTML)">w</div>
+			<div class="cell" onclick="add_char(this.innerHTML)">e</div>
+			<div class="cell" onclick="add_char(this.innerHTML)">r</div>
+			<div class="cell" onclick="add_char(this.innerHTML)">a</div>
+			<div class="cell" onclick="add_char(this.innerHTML)">s</div>
+			<div class="cell" onclick="add_char(this.innerHTML)">d</div>
 		</div>
 	
-		<div class="input_container" id="2" style="display: none;">
-			<div class="cell">a</div>
-			<div class="cell">s</div>
-			<div class="cell">d</div>
-			<div class="cell">z</div>
-			<div class="cell">x</div>
-			<div class="cell">c</div>
+		<div class="input_container" id="z_2" style="display: none;">
+			<div class="cell" onclick="add_char(this.innerHTML)">a</div>
+			<div class="cell" onclick="add_char(this.innerHTML)">s</div>
+			<div class="cell" onclick="add_char(this.innerHTML)">d</div>
+			<div class="cell" onclick="add_char(this.innerHTML)">z</div>
+			<div class="cell" onclick="add_char(this.innerHTML)">x</div>
+			<div class="cell" onclick="add_char(this.innerHTML)">c</div>
 		</div>
 		
-		<div class="input_container" id="3" style="display: none;">
-			<div class="cell">t</div>
-			<div class="cell">y</div>
-			<div class="cell">u</div>
-			<div class="cell">f</div>
-			<div class="cell">g</div>
-			<div class="cell">h</div>
+		<div class="input_container" id="z_3" style="display: none;">
+			<div class="cell" onclick="add_char(this.innerHTML)">t</div>
+			<div class="cell" onclick="add_char(this.innerHTML)">y</div>
+			<div class="cell" onclick="add_char(this.innerHTML)">u</div>
+			<div class="cell" onclick="add_char(this.innerHTML)">f</div>
+			<div class="cell" onclick="add_char(this.innerHTML)">g</div>
+			<div class="cell" onclick="add_char(this.innerHTML)">h</div>
 		</div>
 	
-		<div class="input_container" id="4" style="display: none;">
-			<div class="cell">f</div>
-			<div class="cell">g</div>
-			<div class="cell">h</div>
-			<div class="cell">v</div>
-			<div class="cell">b</div>
-			<div class="cell">n</div>
+		<div class="input_container" id="z_4" style="display: none;">
+			<div class="cell" onclick="add_char(this.innerHTML)">f</div>
+			<div class="cell" onclick="add_char(this.innerHTML)">g</div>
+			<div class="cell" onclick="add_char(this.innerHTML)">h</div>
+			<div class="cell" onclick="add_char(this.innerHTML)">v</div>
+			<div class="cell" onclick="add_char(this.innerHTML)">b</div>
+			<div class="cell" onclick="add_char(this.innerHTML)">n</div>
 		</div>
 	
-		<div class="input_container" id="5" style="display: none;">
-			<div class="cell">i</div>
-			<div class="cell">o</div>
-			<div class="cell">p</div>
-			<div class="cell">j</div>
-			<div class="cell">k</div>
-			<div class="cell">l</div>
+		<div class="input_container" id="z_5" style="display: none;">
+			<div class="cell" onclick="add_char(this.innerHTML)">i</div>
+			<div class="cell" onclick="add_char(this.innerHTML)">o</div>
+			<div class="cell" onclick="add_char(this.innerHTML)">p</div>
+			<div class="cell" onclick="add_char(this.innerHTML)">j</div>
+			<div class="cell" onclick="add_char(this.innerHTML)">k</div>
+			<div class="cell" onclick="add_char(this.innerHTML)">l</div>
 		</div>
 	
-		<div class="input_container" id="6" style="display: none;">
-			<div class="cell">j</div>
-			<div class="cell">k</div>
-			<div class="cell">l</div>
-			<div class="cell">m</div>
-			<div class="cell">q</div>
-			<div class="cell"> </div>
+		<div class="input_container" id="z_6" style="display: none;">
+			<div class="cell" onclick="add_char(this.innerHTML)">j</div>
+			<div class="cell" onclick="add_char(this.innerHTML)">k</div>
+			<div class="cell" onclick="add_char(this.innerHTML)">l</div>
+			<div class="cell" onclick="add_char(this.innerHTML)">m</div>
+			<div class="cell" onclick="add_char(this.innerHTML)">q</div>
+			<div class="cell" onclick="add_char(this.innerHTML)"> </div>
 		</div>
 	</div>
 
@@ -134,6 +134,12 @@
 	<script>
 
 		var current_screen = 3;
+
+		function add_char (char)
+		{
+			document.getElementById("touch").innerHTML += char;
+		}
+
 		function change_screen (dir, current)
 		{
 			console.log("Entered change!");
@@ -183,8 +189,8 @@
 					break;
 			}
 			current_screen = new_screen;
-			document.getElementById(current.toString()).style.display = "none";
-			document.getElementById(new_screen.toString()).style.display = "grid";
+			document.getElementById("z_" + current.toString()).style.display = "none";
+			document.getElementById("z_" + new_screen.toString()).style.display = "grid";
 		}
 
 		function detect_swipe ()
@@ -217,49 +223,41 @@
 					if (del_x >= thresh_up && Math.abs(del_y) <= thres_down)
 					{
 						// Right swipe
-						local.innerHTML="RIGHT";
 						change_screen("right",current_screen);
 					}
 					else if (del_x <= -thresh_up && Math.abs(del_y) <= thres_down)
 					{
 						// Left swipe
-						local.innerHTML="LEFT";
 						change_screen("left",current_screen);
 					}
 					else if (Math.abs(del_x) <= thres_down && del_y <= -thresh_up)
 					{
 						// Up swipe
-						local.innerHTML="UP";
 						change_screen("up",current_screen);
 					}
 					else if (Math.abs(del_x) <= thres_down && del_y >= thresh_up)
 					{
 						// Down swipe
-						local.innerHTML="DOWN";
 						change_screen("down",current_screen);
 					}
 					else if (del_x >= thresh_up && del_y <= -thresh_up)
 					{
 						// Diagonal swipe (LB -> RT)
-						local.innerHTML="LB->RT";
 						change_screen("BL->TR",current_screen);
 					}
 					else if (del_x <= -thresh_up && del_y <= -thresh_up)
 					{
 						// Diagonal swipe (RB -> LT)
-						local.innerHTML="RB->LT";
 						change_screen("BR->TL",current_screen);
 					}
 					else if (del_x >= thresh_up && del_y >= thresh_up)
 					{
 						// Diagonal swipe (LT -> RB)
-						local.innerHTML="LT->RB";
 						change_screen("TL->BR",current_screen);
 					}
 					else if (del_x <= -thresh_up && del_y >= thresh_up)
 					{
 						// Diagonal swipe (RT -> LB)
-						local.innerHTML="RT->LB";
 						change_screen("TR->BL",current_screen);
 					}
 				}
@@ -340,7 +338,7 @@
 			function touch (event)
 			{
 				var event = event || window.event;
-				var local = document.getElementById("touch");
+				//var local = document.getElementById("touch");
 
 				switch(event.type)
 				{
@@ -472,12 +470,12 @@
 		window.addEventListener('load',
 								function () {
 									detect_swipe();
-									document.getElementById("3").style.display = "grid";
-									document.getElementById("1").style.display = "none";
-									document.getElementById("2").style.display = "none";
-									document.getElementById("4").style.display = "none";
-									document.getElementById("5").style.display = "none";
-									document.getElementById("6").style.display = "none";
+									document.getElementById("z_3").style.display = "grid";
+									document.getElementById("z_1").style.display = "none";
+									document.getElementById("z_2").style.display = "none";
+									document.getElementById("z_4").style.display = "none";
+									document.getElementById("z_5").style.display = "none";
+									document.getElementById("z_6").style.display = "none";
 								}, false)
 	</script>
 
