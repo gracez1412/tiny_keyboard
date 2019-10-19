@@ -69,26 +69,60 @@
 		<div class="cell"></div> 
 	</div>
 
-	<div class="square">
+	<div class="square" id="input">
+		<div class="input_container" id="1" style="display: none;">
+			<div class="cell">w</div>
+			<div class="cell">e</div>
+			<div class="cell">r</div>
+			<div class="cell">a</div>
+			<div class="cell">s</div>
+			<div class="cell">d</div>
+		</div>
+	
+		<div class="input_container" id="2" style="display: none;">
+			<div class="cell">a</div>
+			<div class="cell">s</div>
+			<div class="cell">d</div>
+			<div class="cell">z</div>
+			<div class="cell">x</div>
+			<div class="cell">c</div>
+		</div>
 		
-	</div>
-
-	<div class="input_container" id="1" style="display: none;">
-		<div class="cell">w</div>
-		<div class="cell">e</div>
-		<div class="cell">r</div>
-		<div class="cell">a</div>
-		<div class="cell">s</div>
-		<div class="cell">d</div>
-	</div>
-
-	<div class="input_container" id="2" style="display: none;">
-		<div class="cell">a</div>
-		<div class="cell">s</div>
-		<div class="cell">d</div>
-		<div class="cell">z</div>
-		<div class="cell">x</div>
-		<div class="cell">c</div>
+		<div class="input_container" id="3" style="display: none;">
+			<div class="cell">t</div>
+			<div class="cell">y</div>
+			<div class="cell">u</div>
+			<div class="cell">f</div>
+			<div class="cell">g</div>
+			<div class="cell">h</div>
+		</div>
+	
+		<div class="input_container" id="4" style="display: none;">
+			<div class="cell">f</div>
+			<div class="cell">g</div>
+			<div class="cell">h</div>
+			<div class="cell">v</div>
+			<div class="cell">b</div>
+			<div class="cell">n</div>
+		</div>
+	
+		<div class="input_container" id="5" style="display: none;">
+			<div class="cell">i</div>
+			<div class="cell">o</div>
+			<div class="cell">p</div>
+			<div class="cell">j</div>
+			<div class="cell">k</div>
+			<div class="cell">l</div>
+		</div>
+	
+		<div class="input_container" id="6" style="display: none;">
+			<div class="cell">j</div>
+			<div class="cell">k</div>
+			<div class="cell">l</div>
+			<div class="cell">m</div>
+			<div class="cell">q</div>
+			<div class="cell"> </div>
+		</div>
 	</div>
 
 	<script src="cordova.js"></script>
@@ -98,6 +132,61 @@
 	<!-- TODO: Add libraries that you need -->
 
 	<script>
+
+		var current_screen = 3;
+		function change_screen (dir, current)
+		{
+			console.log("Entered change!");
+			var new_screen = Number(current);
+			switch(dir)
+			{
+				case "up": 
+				case "down":
+					new_screen = new_screen + -1 + 2*(new_screen%2);
+					console.log("new screen" + new_screen);
+					break;
+				case "right":
+					new_screen = (new_screen + 2)%6;
+					if (new_screen == 0)
+						new_screen = 6;
+					console.log("new screen" + new_screen);
+					break;
+				case "left":
+					new_screen = (new_screen + 4)%6;
+					if (new_screen == 0)
+						new_screen = 6;
+					console.log("new screen" + new_screen);
+					break;
+				case "BR->TL":
+					if (new_screen % 2 == 0)
+						new_screen = (new_screen + 3)%6;
+					if (new_screen == 0)
+						new_screen = 6;
+					break;
+				case "BL->TR":
+					if (new_screen % 2 == 0)
+						new_screen = (new_screen + 1)%6;
+					if (new_screen == 0)
+						new_screen = 6;
+					break;
+				case "TR->BL":
+					if (new_screen % 2 == 1)
+						new_screen = (new_screen + 5)%6;
+					if (new_screen == 0)
+						new_screen = 6;
+					break;
+				case "TL->BR":
+					if (new_screen % 2 == 1)
+						new_screen = (new_screen + 3)%6;
+					if (new_screen == 0)
+						new_screen = 6;
+					break;
+			}
+			current_screen = new_screen;
+			document.getElementById(current.toString()).style.display = "none";
+			document.getElementById(new_screen.toString()).style.display = "grid";
+		}
+
 		function detect_swipe ()
 		{
 			document.addEventListener('touchstart', touch, false);
@@ -129,43 +218,49 @@
 					{
 						// Right swipe
 						local.innerHTML="RIGHT";
-						// var varSlid = "A"+i;
-      //     				$('.demo').append('<div id= ' + varSlid  + '></div></br>');
+						change_screen("right",current_screen);
 					}
 					else if (del_x <= -thresh_up && Math.abs(del_y) <= thres_down)
 					{
 						// Left swipe
 						local.innerHTML="LEFT";
+						change_screen("left",current_screen);
 					}
 					else if (Math.abs(del_x) <= thres_down && del_y <= -thresh_up)
 					{
 						// Up swipe
 						local.innerHTML="UP";
+						change_screen("up",current_screen);
 					}
 					else if (Math.abs(del_x) <= thres_down && del_y >= thresh_up)
 					{
 						// Down swipe
 						local.innerHTML="DOWN";
+						change_screen("down",current_screen);
 					}
 					else if (del_x >= thresh_up && del_y <= -thresh_up)
 					{
 						// Diagonal swipe (LB -> RT)
 						local.innerHTML="LB->RT";
+						change_screen("BL->TR",current_screen);
 					}
 					else if (del_x <= -thresh_up && del_y <= -thresh_up)
 					{
 						// Diagonal swipe (RB -> LT)
 						local.innerHTML="RB->LT";
+						change_screen("BR->TL",current_screen);
 					}
 					else if (del_x >= thresh_up && del_y >= thresh_up)
 					{
 						// Diagonal swipe (LT -> RB)
 						local.innerHTML="LT->RB";
+						change_screen("TL->BR",current_screen);
 					}
 					else if (del_x <= -thresh_up && del_y >= thresh_up)
 					{
 						// Diagonal swipe (RT -> LB)
 						local.innerHTML="RT->LB";
+						change_screen("TR->BL",current_screen);
 					}
 				}
 				else
@@ -377,16 +472,12 @@
 		window.addEventListener('load',
 								function () {
 									detect_swipe();
-									var one = document.getElementById("1");
-									$('#square').append('<div class="input_container" id="1"></div>');
-									one.style.display = "block";
-									//one.stSyle.display = "block";
-									/*document.getElementById("3").style.display = "block";
+									document.getElementById("3").style.display = "grid";
 									document.getElementById("1").style.display = "none";
 									document.getElementById("2").style.display = "none";
 									document.getElementById("4").style.display = "none";
 									document.getElementById("5").style.display = "none";
-									document.getElementById("6").style.display = "none";*/	
+									document.getElementById("6").style.display = "none";
 								}, false)
 	</script>
 
