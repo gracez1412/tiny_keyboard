@@ -12,7 +12,7 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no,
 		shrink-to-fit=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
 
-	<title>Basic Template App</title>
+	<title>Tiny Keyboard</title>
 
 	<style>
 		@import 'ui/css/keys.css';
@@ -37,7 +37,7 @@
 	</header>
 
 
-	<div class="text_entry" id="touch"></div>
+	<div class="text_entry" id="touch">_</div>
 
 	<div class="keyboard_container">
 		<div class="cell" id="c_1">w</div>
@@ -71,57 +71,57 @@
 
 	<div class="square" id="input">
 		<div class="input_container" id="z_1" style="display: none;">
-			<div class="cell" ontouchstart="add_char(this.innerHTML); this.style.background='#87CEFA';" ontouchend="this.style.background='white'"">w</div>
-			<div class="cell" ontouchstart="add_char(this.innerHTML); this.style.background='#87CEFA';" ontouchend="this.style.background='white'"">e</div>
-			<div class="cell" ontouchstart="add_char(this.innerHTML); this.style.background='#87CEFA';" ontouchend="this.style.background='white'"">r</div>
-			<div class="cell" ontouchstart="add_char(this.innerHTML); this.style.background='#87CEFA';" ontouchend="this.style.background='white'"">a</div>
-			<div class="cell" ontouchstart="add_char(this.innerHTML); this.style.background='#87CEFA';" ontouchend="this.style.background='white'"">s</div>
-			<div class="cell" ontouchstart="add_char(this.innerHTML); this.style.background='#87CEFA';" ontouchend="this.style.background='white'"">d</div>
+			<div class="cell" id="w" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">w</div>
+			<div class="cell" id="e" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">e</div>
+			<div class="cell" id="r" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">r</div>
+			<div class="cell" id="a" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">a</div>
+			<div class="cell" id="s" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">s</div>
+			<div class="cell" id="d" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">d</div>
 		</div>
 	
 		<div class="input_container" id="z_2" style="display: none;">
-			<div class="cell" ontouchstart="add_char(this.innerHTML); this.style.background='#87CEFA';" ontouchend="this.style.background='white'">a</div>
-			<div class="cell" ontouchstart="add_char(this.innerHTML); this.style.background='#87CEFA';" ontouchend="this.style.background='white'">s</div>
-			<div class="cell" ontouchstart="add_char(this.innerHTML); this.style.background='#87CEFA';" ontouchend="this.style.background='white'">d</div>
-			<div class="cell" ontouchstart="add_char(this.innerHTML); this.style.background='#87CEFA';" ontouchend="this.style.background='white'">z</div>
-			<div class="cell" ontouchstart="add_char(this.innerHTML); this.style.background='#87CEFA';" ontouchend="this.style.background='white'">x</div>
-			<div class="cell" ontouchstart="add_char(this.innerHTML); this.style.background='#87CEFA';" ontouchend="this.style.background='white'">c</div>
+			<div class="cell" id="a1" ontouchstart="set_char(this.innerHTML+'1');" ontouchend="this.style.background='white'">a</div>
+			<div class="cell" id="s1" ontouchstart="set_char(this.innerHTML+'1');" ontouchend="this.style.background='white'">s</div>
+			<div class="cell" id="d1" ontouchstart="set_char(this.innerHTML+'1');" ontouchend="this.style.background='white'">d</div>
+			<div class="cell" id="z" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">z</div>
+			<div class="cell" id="x" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">x</div>
+			<div class="cell" id="c" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">c</div>
 		</div>
 		
 		<div class="input_container" id="z_3" style="display: none;">
-			<div class="cell" ontouchstart="add_char(this.innerHTML); this.style.background='#87CEFA';" ontouchend="this.style.background='white'">t</div>
-			<div class="cell" ontouchstart="add_char(this.innerHTML); this.style.background='#87CEFA';" ontouchend="this.style.background='white'">y</div>
-			<div class="cell" ontouchstart="add_char(this.innerHTML); this.style.background='#87CEFA';" ontouchend="this.style.background='white'">u</div>
-			<div class="cell" ontouchstart="add_char(this.innerHTML); this.style.background='#87CEFA';" ontouchend="this.style.background='white'">f</div>
-			<div class="cell" ontouchstart="add_char(this.innerHTML); this.style.background='#87CEFA';" ontouchend="this.style.background='white'">g</div>
-			<div class="cell" ontouchstart="add_char(this.innerHTML); this.style.background='#87CEFA';" ontouchend="this.style.background='white'">h</div>
+			<div class="cell" id="t" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">t</div>
+			<div class="cell" id="y" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">y</div>
+			<div class="cell" id="u" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">u</div>
+			<div class="cell" id="f" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">f</div>
+			<div class="cell" id="g" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">g</div>
+			<div class="cell" id="h" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">h</div>
 		</div>
 	
 		<div class="input_container" id="z_4" style="display: none;">
-			<div class="cell" ontouchstart="add_char(this.innerHTML); this.style.background='#87CEFA';" ontouchend="this.style.background='white'"">f</div>
-			<div class="cell" ontouchstart="add_char(this.innerHTML); this.style.background='#87CEFA';" ontouchend="this.style.background='white'"">g</div>
-			<div class="cell" ontouchstart="add_char(this.innerHTML); this.style.background='#87CEFA';" ontouchend="this.style.background='white'"">h</div>
-			<div class="cell" ontouchstart="add_char(this.innerHTML); this.style.background='#87CEFA';" ontouchend="this.style.background='white'"">v</div>
-			<div class="cell" ontouchstart="add_char(this.innerHTML); this.style.background='#87CEFA';" ontouchend="this.style.background='white'"">b</div>
-			<div class="cell" ontouchstart="add_char(this.innerHTML); this.style.background='#87CEFA';" ontouchend="this.style.background='white'"">n</div>
+			<div class="cell" id="f1" ontouchstart="set_char(this.innerHTML+'1');" ontouchend="this.style.background='white'">f</div>
+			<div class="cell" id="g1" ontouchstart="set_char(this.innerHTML+'1');" ontouchend="this.style.background='white'">g</div>
+			<div class="cell" id="h1" ontouchstart="set_char(this.innerHTML+'1');" ontouchend="this.style.background='white'">h</div>
+			<div class="cell" id="v" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">v</div>
+			<div class="cell" id="b" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">b</div>
+			<div class="cell" id="n" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">n</div>
 		</div>
 	
 		<div class="input_container" id="z_5" style="display: none;">
-			<div class="cell" ontouchstart="add_char(this.innerHTML); this.style.background='#87CEFA';" ontouchend="this.style.background='white'"">i</div>
-			<div class="cell" ontouchstart="add_char(this.innerHTML); this.style.background='#87CEFA';" ontouchend="this.style.background='white'"">o</div>
-			<div class="cell" ontouchstart="add_char(this.innerHTML); this.style.background='#87CEFA';" ontouchend="this.style.background='white'"">p</div>
-			<div class="cell" ontouchstart="add_char(this.innerHTML); this.style.background='#87CEFA';" ontouchend="this.style.background='white'"">j</div>
-			<div class="cell" ontouchstart="add_char(this.innerHTML); this.style.background='#87CEFA';" ontouchend="this.style.background='white'"">k</div>
-			<div class="cell" ontouchstart="add_char(this.innerHTML); this.style.background='#87CEFA';" ontouchend="this.style.background='white'"">l</div>
+			<div class="cell" id="i" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">i</div>
+			<div class="cell" id="o" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">o</div>
+			<div class="cell" id="p" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">p</div>
+			<div class="cell" id="j" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">j</div>
+			<div class="cell" id="k" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">k</div>
+			<div class="cell" id="l" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">l</div>
 		</div>
 	
 		<div class="input_container" id="z_6" style="display: none;">
-			<div class="cell" ontouchstart="add_char(this.innerHTML); this.style.background='#87CEFA';" ontouchend="this.style.background='white'"">j</div>
-			<div class="cell" ontouchstart="add_char(this.innerHTML); this.style.background='#87CEFA';" ontouchend="this.style.background='white'"">k</div>
-			<div class="cell" ontouchstart="add_char(this.innerHTML); this.style.background='#87CEFA';" ontouchend="this.style.background='white'"">l</div>
-			<div class="cell" ontouchstart="add_char(this.innerHTML); this.style.background='#87CEFA';" ontouchend="this.style.background='white'"">m</div>
-			<div class="cell" ontouchstart="add_char(this.innerHTML); this.style.background='#87CEFA';" ontouchend="this.style.background='white'"">q</div>
-			<div class="cell" ontouchstart="add_char(this.innerHTML); this.style.background='#87CEFA';" ontouchend="this.style.background='white'""> </div>
+			<div class="cell" id="j1" ontouchstart="set_char(this.innerHTML+'1');" ontouchend="this.style.background='white'">j</div>
+			<div class="cell" id="k1" ontouchstart="set_char(this.innerHTML+'1');" ontouchend="this.style.background='white'">k</div>
+			<div class="cell" id="l1" ontouchstart="set_char(this.innerHTML+'1');" ontouchend="this.style.background='white'">l</div>
+			<div class="cell" id="m" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">m</div>
+			<div class="cell" id="q" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">q</div>
+			<div class="cell" id=" " ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'"> </div>
 		</div>
 	</div>
 
@@ -130,418 +130,6 @@
 	<script src="libs/evothings/ui/ui.js"></script>
 	<script src="keyboard.js"></script>
 	<!-- TODO: Add libraries that you need -->
-
-	<script>
-
-		var current_screen = 3;
-
-		function add_char (char)
-		{
-			document.getElementById("touch").innerHTML += char;
-		}
-
-		function change_color (old_z, new_z)
-		{
-			switch(old_z)
-			{
-				case 1:
-					for (var i = 1; i <= 6; i++)
-						document.getElementById("c_" + i.toString()).style.background = "white";
-					break;
-				case 2:
-				for (var i = 4; i <= 9; i++)
-						document.getElementById("c_" + i.toString()).style.background = "white";
-					break;
-				case 3:
-					for (var i = 10; i <= 15; i++)
-						document.getElementById("c_" + i.toString()).style.background = "white";
-					break;
-				case 4:
-					for (var i = 13; i <= 18; i++)
-						document.getElementById("c_" + i.toString()).style.background = "white";
-					break;
-				case 5:
-					for (var i = 19; i <= 24; i++)
-						document.getElementById("c_" + i.toString()).style.background = "white";
-					break;
-				case 6:
-					for (var i = 22; i <= 27; i++)
-						document.getElementById("c_" + i.toString()).style.background = "white";
-					break;
-			}
-
-			switch(new_z)
-			{
-				case 1:
-					for (var i = 1; i <= 6; i++)
-						document.getElementById("c_" + i.toString()).style.background = "#98FB98";
-					break;
-				case 2:
-				for (var i = 4; i <= 9; i++)
-						document.getElementById("c_" + i.toString()).style.background = "#98FB98";
-					break;
-				case 3:
-					for (var i = 10; i <= 15; i++)
-						document.getElementById("c_" + i.toString()).style.background = "#98FB98";
-					break;
-				case 4:
-					for (var i = 13; i <= 18; i++)
-						document.getElementById("c_" + i.toString()).style.background = "#98FB98";
-					break;
-				case 5:
-					for (var i = 19; i <= 24; i++)
-						document.getElementById("c_" + i.toString()).style.background = "#98FB98";
-					break;
-				case 6:
-					for (var i = 22; i <= 27; i++)
-						document.getElementById("c_" + i.toString()).style.background = "#98FB98";
-					break;
-			}
-		}
-
-		function change_screen (dir, current)
-		{
-			console.log("Entered change!");
-			var new_screen = Number(current);
-			switch(dir)
-			{
-				case "up": 
-				case "down":
-					new_screen = new_screen + -1 + 2*(new_screen%2);
-					console.log("new screen" + new_screen);
-					break;
-				case "right":
-					new_screen = (new_screen + 2)%6;
-					if (new_screen == 0)
-						new_screen = 6;
-					console.log("new screen" + new_screen);
-					break;
-				case "left":
-					new_screen = (new_screen + 4)%6;
-					if (new_screen == 0)
-						new_screen = 6;
-					console.log("new screen" + new_screen);
-					break;
-				case "BR->TL":
-					if (new_screen % 2 == 0)
-						new_screen = (new_screen + 3)%6;
-					if (new_screen == 0)
-						new_screen = 6;
-					break;
-				case "BL->TR":
-					if (new_screen % 2 == 0)
-						new_screen = (new_screen + 1)%6;
-					if (new_screen == 0)
-						new_screen = 6;
-					break;
-				case "TR->BL":
-					if (new_screen % 2 == 1)
-						new_screen = (new_screen + 5)%6;
-					if (new_screen == 0)
-						new_screen = 6;
-					break;
-				case "TL->BR":
-					if (new_screen % 2 == 1)
-						new_screen = (new_screen + 3)%6;
-					if (new_screen == 0)
-						new_screen = 6;
-					break;
-			}
-			change_color(current_screen,new_screen);
-			current_screen = new_screen;
-			document.getElementById("z_" + current.toString()).style.display = "none";
-			document.getElementById("z_" + new_screen.toString()).style.display = "grid";
-		}
-
-		function detect_swipe ()
-		{
-			document.addEventListener('touchstart', touch, false);
-			document.addEventListener('touchmove', touch, false);
-			document.addEventListener('touchend', touch, false);
-
-			var init_x, init_y, curr_x, curr_y, fin_x, fin_y;
-			var init_x2, init_y2, curr_x2, curr_y2, fin_x2, fin_y2;
-			var del_x, del_y;
-			var del_x2, del_y2;
-			var valid = true;
-			var twoTouch = false;
-
-			function compute_dir (valid, init_x, init_y, fin_x, fin_y)
-			{
-				var local = document.getElementById("touch");
-
-				// Determine single finger swipe direction, if within 2x2 area
-				if (valid)
-				{
-					var thresh_up = 30;
-					var thres_down = 15;
-
-					// Compute delta b/w init and final coordinates
-					del_x = fin_x - init_x;
-					del_y = fin_y - init_y;
-
-					if (del_x >= thresh_up && Math.abs(del_y) <= thres_down)
-					{
-						// Right swipe
-						change_screen("right",current_screen);
-					}
-					else if (del_x <= -thresh_up && Math.abs(del_y) <= thres_down)
-					{
-						// Left swipe
-						change_screen("left",current_screen);
-					}
-					else if (Math.abs(del_x) <= thres_down && del_y <= -thresh_up)
-					{
-						// Up swipe
-						change_screen("up",current_screen);
-					}
-					else if (Math.abs(del_x) <= thres_down && del_y >= thresh_up)
-					{
-						// Down swipe
-						change_screen("down",current_screen);
-					}
-					else if (del_x >= thresh_up && del_y <= -thresh_up)
-					{
-						// Diagonal swipe (LB -> RT)
-						change_screen("BL->TR",current_screen);
-					}
-					else if (del_x <= -thresh_up && del_y <= -thresh_up)
-					{
-						// Diagonal swipe (RB -> LT)
-						change_screen("BR->TL",current_screen);
-					}
-					else if (del_x >= thresh_up && del_y >= thresh_up)
-					{
-						// Diagonal swipe (LT -> RB)
-						change_screen("TL->BR",current_screen);
-					}
-					else if (del_x <= -thresh_up && del_y >= thresh_up)
-					{
-						// Diagonal swipe (RT -> LB)
-						change_screen("TR->BL",current_screen);
-					}
-				}
-				else
-				{
-					// Reset valid toggle if false
-					valid = true;
-				}
-			}
-
-			function compute_2dir (valid, init_x, init_y, fin_x, fin_y, init_x2, init_y2, fin_x2, fin_y2)
-			{
-				var local = document.getElementById("touch");
-
-				// Determine two finger swipe direction, if within 2x2 area
-				if (valid)
-				{
-					var thresh_up = 15;
-					var thres_down = 10;
-
-					// Compute delta b/w init and final coordinates
-					del_x = fin_x - init_x;
-					del_y = fin_y - init_y;
-					del_x2 = fin_x2 - init_x2;
-					del_y2 = fin_y2 - init_y2;
-
-					if (del_x >= thresh_up && Math.abs(del_y) <= thres_down && del_x2 >= thresh_up && Math.abs(del_y2) <= thres_down)
-					{
-						// Right swipe w/ 2 finger
-						local.innerHTML="RIGHT (2)";
-						// var varSlid = "A"+i;
-      //     				$('.demo').append('<div id= ' + varSlid  + '></div></br>');
-					}
-					else if (del_x <= -thresh_up && Math.abs(del_y) <= thres_down && del_x2 <= -thresh_up && Math.abs(del_y2) <= thres_down)
-					{
-						// Left swipe w/ 2 finger
-						local.innerHTML="LEFT (2)";
-					}
-					else if (Math.abs(del_x) <= thres_down && del_y <= -thresh_up && Math.abs(del_x2) <= thres_down && del_y2 <= -thresh_up)
-					{
-						// Up swipe w/ 2 finger
-						local.innerHTML="UP (2)";
-					}
-					else if (Math.abs(del_x) <= thres_down && del_y >= thresh_up && Math.abs(del_x2) <= thres_down && del_y2 >= thresh_up)
-					{
-						// Down swipe w/ 2 finger
-						local.innerHTML="DOWN (2)";
-					}
-					// else if (del_x >= thresh_up && del_y <= -thresh_up && del_x2 >= thresh_up && del_y2 <= -thresh_up)
-					// {
-					// 	// Diagonal swipe (LB -> RT) w/ 2 finger
-					// 	local.innerHTML="LB->RT (2)";
-					// }
-					// else if (del_x <= -thresh_up && del_y <= -thresh_up && del_x2 <= -thresh_up && del_y2 <= -thresh_up)
-					// {
-					// 	// Diagonal swipe (RB -> LT) w/ 2 finger
-					// 	local.innerHTML="RB->LT (2)";
-					// }
-					// else if (del_x >= thresh_up && del_y >= thresh_up && del_x2 >= thresh_up && del_y2 >= thresh_up)
-					// {
-					// 	// Diagonal swipe (LT -> RB) w/ 2 finger
-					// 	local.innerHTML="LT->RB (2)";
-					// }
-					// else if (del_x <= -thresh_up && del_y >= thresh_up && del_x2 <= -thresh_up && del_y2 >= thresh_up)
-					// {
-					// 	// Diagonal swipe (RT -> LB) w/ 2 finger
-					// 	local.innerHTML="RT->LB (2)";
-					// }
-				}
-				else
-				{
-					// Reset valid toggle if false
-					valid = true;
-				}
-			}
-			
-
-			function touch (event)
-			{
-				var event = event || window.event;
-				//var local = document.getElementById("touch");
-
-				switch(event.type)
-				{
-					case "touchstart":
-						if(event.touches.length > 1)
-						{
-							// Two finger swipe
-							twoTouch = true;
-							init_x = event.touches[0].clientX;
-							init_y = event.touches[0].clientY;
-							init_x2 = event.touches[1].clientX;
-							init_y2 = event.touches[1].clientY;
-							if ((init_x < 140 || init_x > 275) || (init_y < 520 || init_y > 650) || 
-								(init_x2 < 140 || init_x2 > 275) || (init_y2 < 520 || init_y2 > 650))
-							{
-								// Touch invalid if outside 2x2 area
-								valid = false;
-							}
-							else
-							{
-								// Otherwise, touch valid
-								valid = true;
-							}
-						}
-						else
-						{
-							// Single finger swipe
-							twoTouch = false;
-							init_x = event.touches[0].clientX;
-							init_y = event.touches[0].clientY;
-							if ((init_x < 140 || init_x > 275) || (init_y < 520 || init_y > 650))
-							{
-								// Touch invalid if outside 2x2 area
-								valid = false;
-							}
-							else
-							{
-								// Otherwise, touch valid
-								valid = true;
-							}
-						}
-						// local.innerHTML="Touchstart (" + event.targetTouches[0].clientX + "," + event.targetTouches[0].clientY + ")";
-						break;
-					case "touchmove":
-						event.preventDefault();
-						if(twoTouch)
-						{
-							// Two finger swipe
-							curr_x = event.touches[0].clientX;
-							curr_y = event.touches[0].clientY;
-							curr_x2 = event.touches[1].clientX;
-							curr_y2 = event.touches[1].clientY;
-							if ((curr_x < 140 || curr_x > 275) || (curr_y < 520 || curr_y > 650) || 
-								(curr_x2 < 140 || curr_x2 > 275) || (curr_y2 < 520 || curr_y2 > 650))
-							{
-								// Touch invalid if outside 2x2 area
-								valid = false;
-							}
-							else
-							{
-								// Otherwise, touch valid
-								valid = true;
-							}
-						}
-						else
-						{
-							// Single finger swipe
-							curr_x = event.touches[0].clientX;
-							curr_y = event.touches[0].clientY;
-							if ((curr_x < 140 || curr_x > 275) || (curr_y < 520 || curr_y > 650))
-							{
-								// Touch invalid if outside 2x2 area
-								valid = false;
-							}
-							else
-							{
-								// Otherwise, touch valid
-								valid = true;
-							}
-						}
-						// local.innerHTML="Touchmove (" + event.targetTouches[0].clientX + "," + event.targetTouches[0].clientY + ")";
-						break;
-					case "touchend":
-						// local.innerHTML="STOP! (" + event.changedTouches[0].clientX + "," + event.changedTouches[0].clientY + ")";
-						if(twoTouch)
-						{
-							// Two finger swipe
-							fin_x = event.changedTouches[0].clientX;
-							fin_y = event.changedTouches[0].clientY;
-							if ((fin_x < 140 || fin_x > 275) || (fin_y < 520 || fin_y > 650) || 
-								(curr_x2 < 140 || curr_x2 > 275) || (curr_y2 < 520 || curr_y2 > 650))
-							{
-								// Touch invalid if outside 2x2 area
-								valid = false;
-							}
-							else
-							{
-								// Otherwise, touch valid
-								valid = true;
-							}
-
-							// Compute direction of two finger swipe, if valid
-							compute_2dir(valid, init_x, init_y, fin_x, fin_y, init_x2, init_y2, curr_x2, curr_y2);
-						}
-						else
-						{
-							// Single finger swipe
-							fin_x = event.changedTouches[0].clientX;
-							fin_y = event.changedTouches[0].clientY;
-							if ((fin_x < 140 || fin_x > 275) || (fin_y < 520 || fin_y > 650))
-							{
-								// Touch invalid if outside 2x2 area
-								valid = false;
-							}
-							else
-							{
-								// Otherwise, touch valid
-								valid = true;
-							}
-
-							// Compute direction of swipe, if valid
-							compute_dir(valid, init_x, init_y, fin_x, fin_y);
-						}
-						break;
-				}
-			}
-		}
-
-		window.addEventListener('load',
-								function () {
-									detect_swipe();
-									document.getElementById("z_3").style.display = "grid";
-									document.getElementById("z_1").style.display = "none";
-									document.getElementById("z_2").style.display = "none";
-									document.getElementById("z_4").style.display = "none";
-									document.getElementById("z_5").style.display = "none";
-									document.getElementById("z_6").style.display = "none";
-
-									for (var i = 10; i <= 15; i++)
-										document.getElementById("c_" + i.toString()).style.background = "#98FB98";
-								}, false)
-	</script>
-
 
 </body>
 
