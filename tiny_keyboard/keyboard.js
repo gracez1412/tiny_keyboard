@@ -8,34 +8,64 @@ function set_char (char)
 	input_char = char;
 }
 
-function add_char (char)
-{
-	// Add char to text entry field (and shift cursor)
-	if (button_valid || char == ' ')
-	{
-		char = char.charAt(0)
-		document.getElementById("touch").innerHTML += char;
-		var text = document.getElementById("touch").innerHTML;
-		document.getElementById("touch").innerHTML = text.replace('_','') + '_';
-		input_char = '';
-	}
-}
-
 function delete_char ()
 {
 	// Delete char from text entry (not including cursor)
 	var text = document.getElementById("touch").innerHTML;
 	var word = text.replace('_','');
 	var len = word.length;
-	document.getElementById("touch").innerHTML = word.substring(0, len-1) + '_';
+
+	if (word.charAt(len-1) == ';') 
+	{
+		// Perform special delete of no-break space character (&nbsp; --> 6 char)
+		document.getElementById("touch").innerHTML = word.substring(0, len-6) + '_';
+	}
+	else 
+	{
+		// Perform normal delete by one character
+		document.getElementById("touch").innerHTML = word.substring(0, len-1) + '_';
+	}
+}
+
+function add_char (char)
+{
+	// Add char to text entry field (and shift cursor)
+	if (button_valid || char == ' ')
+	{
+		if (char == 'del')
+		{
+			// Delete char from text entry field if delete button press
+			delete_char();
+		}
+		else
+		{
+			if (char == ' ' || char.charAt(0) == ' ')
+			{
+				// No-break space character
+				char = '\xa0';
+			}
+			else
+			{
+				// Character for input at index 0
+				char = char.charAt(0);
+			}
+			
+			document.getElementById("touch").innerHTML += char;
+			var text = document.getElementById("touch").innerHTML;
+			document.getElementById("touch").innerHTML = text.replace('_','') + '_';
+			input_char = '';
+		}
+	}
 }
 
 function button_color (char)
 {
 	// Trigger button selection color change if valid button press
-	console.log(char);
-	document.getElementById(char).style.background='#87CEFA';
-	setTimeout(function () { document.getElementById(char).style.background='white'; }, 100);
+	if (char != '')
+	{
+		document.getElementById(char).style.background='#87CEFA';
+		setTimeout(function () { document.getElementById(char).style.background='white'; }, 100);
+	}
 }
 
 function change_color (old_z, new_z)
@@ -255,6 +285,8 @@ function detect_swipe ()
 			else if (Math.abs(del_x) <= thres_down && del_y >= thresh_up && Math.abs(del_x2) <= thres_down && del_y2 >= thresh_up)
 			{
 				// Down swipe w/ 2 finger
+				// Clear all char from text entry (not including cursor)
+				document.getElementById("touch").innerHTML = '_';
 			}
 		}
 		else
@@ -263,11 +295,11 @@ function detect_swipe ()
 			valid = true;
 		}
 	}
-	
 
 	function touch (event)
 	{
 		var event = event || window.event;
+		var left_sq = 135, right_sq = 275, top_sq = 510, bottom_sq = 650;
 
 		switch(event.type)
 		{
@@ -282,8 +314,8 @@ function detect_swipe ()
 					init_y = event.touches[0].clientY;
 					init_x2 = event.touches[1].clientX;
 					init_y2 = event.touches[1].clientY;
-					if ((init_x < 140 || init_x > 275) || (init_y < 520 || init_y > 650) || 
-						(init_x2 < 140 || init_x2 > 275) || (init_y2 < 520 || init_y2 > 650))
+					if ((init_x < left_sq || init_x > right_sq) || (init_y < top_sq || init_y > bottom_sq) || 
+						(init_x2 < left_sq || init_x2 > right_sq) || (init_y2 < top_sq || init_y2 > bottom_sq))
 					{
 						// Touch invalid if outside 2x2 area
 						valid = false;
@@ -300,7 +332,7 @@ function detect_swipe ()
 					twoTouch = false;
 					init_x = event.touches[0].clientX;
 					init_y = event.touches[0].clientY;
-					if ((init_x < 140 || init_x > 275) || (init_y < 520 || init_y > 650))
+					if ((init_x < left_sq || init_x > right_sq) || (init_y < top_sq || init_y > bottom_sq))
 					{
 						// Touch invalid if outside 2x2 area
 						valid = false;
@@ -322,8 +354,8 @@ function detect_swipe ()
 					curr_y = event.touches[0].clientY;
 					curr_x2 = event.touches[1].clientX;
 					curr_y2 = event.touches[1].clientY;
-					if ((curr_x < 140 || curr_x > 275) || (curr_y < 520 || curr_y > 650) || 
-						(curr_x2 < 140 || curr_x2 > 275) || (curr_y2 < 520 || curr_y2 > 650))
+					if ((curr_x < left_sq || curr_x > right_sq) || (curr_y < top_sq || curr_y > bottom_sq) || 
+						(curr_x2 < left_sq || curr_x2 > right_sq) || (curr_y2 < top_sq || curr_y2 > bottom_sq))
 					{
 						// Touch invalid if outside 2x2 area
 						valid = false;
@@ -339,7 +371,7 @@ function detect_swipe ()
 					// Single finger swipe
 					curr_x = event.touches[0].clientX;
 					curr_y = event.touches[0].clientY;
-					if ((curr_x < 140 || curr_x > 275) || (curr_y < 520 || curr_y > 650))
+					if ((curr_x < left_sq || curr_x > right_sq) || (curr_y < top_sq || curr_y > bottom_sq))
 					{
 						// Touch invalid if outside 2x2 area
 						valid = false;
@@ -357,8 +389,8 @@ function detect_swipe ()
 					// Two finger swipe
 					fin_x = event.changedTouches[0].clientX;
 					fin_y = event.changedTouches[0].clientY;
-					if ((fin_x < 140 || fin_x > 275) || (fin_y < 520 || fin_y > 650) || 
-						(curr_x2 < 140 || curr_x2 > 275) || (curr_y2 < 520 || curr_y2 > 650))
+					if ((fin_x < left_sq || fin_x > right_sq) || (fin_y < top_sq || fin_y > bottom_sq) || 
+						(curr_x2 < left_sq || curr_x2 > right_sq) || (curr_y2 < top_sq || curr_y2 > bottom_sq))
 					{
 						// Touch invalid if outside 2x2 area
 						valid = false;
@@ -378,7 +410,7 @@ function detect_swipe ()
 					fin_x = event.changedTouches[0].clientX;
 					fin_y = event.changedTouches[0].clientY;
 					
-					if ((fin_x < 140 || fin_x > 275) || (fin_y < 520 || fin_y > 650))
+					if ((fin_x < left_sq || fin_x > right_sq) || (fin_y < top_sq || fin_y > bottom_sq))
 					{
 						// Touch invalid if outside 2x2 area
 						valid = false;
