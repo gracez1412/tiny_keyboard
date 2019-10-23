@@ -66,64 +66,92 @@
 		<div class="cell" id="c_27"></div> 
 	</div>
 
-	<div class="square" id="input">
-		<div class="input_container" id="z_1" style="display: none;">
-			<div class="cell" id="w" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">w</div>
-			<div class="cell" id="e" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">e</div>
-			<div class="cell" id="r" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">r</div>
-			<div class="cell" id="a" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">a</div>
-			<div class="cell" id="s" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">s</div>
-			<div class="cell" id="d" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">d</div>
+	<div style = "display: flex;">
+		<div class="arrow_container">  
+			<div class="cell">
+				<img class="img" id="BRTL" src="ui/images/Arrow-Transparent.png">
+			</div>
+			<div class="cell">
+				<img class="img" id="BLTR" src="ui/images/Arrow-Transparent.png">
+			</div>
+			<div class="cell">
+				<img class="img" id="up" src="ui/images/Arrow-Transparent.png">
+			</div>
+			<div class="cell">
+				<img class="img" id="right"src="ui/images/Arrow-Transparent.png">
+			</div>
+			<div class="cell">
+				<img class="img" id="TRBL" src="ui/images/Arrow-Transparent.png">
+			</div>
+			<div class="cell">
+				<img class="img" id="TLBR" src="ui/images/Arrow-Transparent.png">
+			</div>
+			<div class="cell">
+				<img class="img" id="down" src="ui/images/Arrow-Transparent.png">
+			</div>
+			<div class="cell">
+				<img class="img" id="left" src="ui/images/Arrow-Transparent.png">
+			</div>
 		</div>
-	
-		<div class="input_container" id="z_2" style="display: none;">
-			<div class="cell" id="a1" ontouchstart="set_char(this.innerHTML+'1');" ontouchend="this.style.background='white'">a</div>
-			<div class="cell" id="s1" ontouchstart="set_char(this.innerHTML+'1');" ontouchend="this.style.background='white'">s</div>
-			<div class="cell" id="d1" ontouchstart="set_char(this.innerHTML+'1');" ontouchend="this.style.background='white'">d</div>
-			<div class="cell" id="z" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">z</div>
-			<div class="cell" id="x" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">x</div>
-			<div class="cell" id="c" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">c</div>
-		</div>
+		<div class="square" id="input" style = "margin-left: 5vw;">
+			<div class="input_container" id="z_1" style="display: none;">
+				<div class="cell" id="w" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">w</div>
+				<div class="cell" id="e" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">e</div>
+				<div class="cell" id="r" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">r</div>
+				<div class="cell" id="a" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">a</div>
+				<div class="cell" id="s" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">s</div>
+				<div class="cell" id="d" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">d</div>
+			</div>
 		
-		<div class="input_container" id="z_3" style="display: none;">
-			<div class="cell" id="t" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">t</div>
-			<div class="cell" id="y" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">y</div>
-			<div class="cell" id="u" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">u</div>
-			<div class="cell" id="f" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">f</div>
-			<div class="cell" id="g" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">g</div>
-			<div class="cell" id="h" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">h</div>
-		</div>
-	
-		<div class="input_container" id="z_4" style="display: none;">
-			<div class="cell" id="f1" ontouchstart="set_char(this.innerHTML+'1');" ontouchend="this.style.background='white'">f</div>
-			<div class="cell" id="g1" ontouchstart="set_char(this.innerHTML+'1');" ontouchend="this.style.background='white'">g</div>
-			<div class="cell" id="h1" ontouchstart="set_char(this.innerHTML+'1');" ontouchend="this.style.background='white'">h</div>
-			<div class="cell" id="v" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">v</div>
-			<div class="cell" id="b" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">b</div>
-			<div class="cell" id="n" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">n</div>
-		</div>
-	
-		<div class="input_container" id="z_5" style="display: none;">
-			<div class="cell" id="i" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">i</div>
-			<div class="cell" id="o" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">o</div>
-			<div class="cell" id="p" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">p</div>
-			<div class="cell" id="j" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">j</div>
-			<div class="cell" id="k" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">k</div>
-			<div class="cell" id="l" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">l</div>
-		</div>
-	
-		<div class="input_container" id="z_6" style="display: none;">
-			<div class="cell" id="j1" ontouchstart="set_char(this.innerHTML+'1');" ontouchend="this.style.background='white'">j</div>
-			<div class="cell" id="k1" ontouchstart="set_char(this.innerHTML+'1');" ontouchend="this.style.background='white'">k</div>
-			<div class="cell" id="l1" ontouchstart="set_char(this.innerHTML+'1');" ontouchend="this.style.background='white'">l</div>
-			<div class="cell" id="m" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">m</div>
-			<div class="cell" id="q" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">q</div>
-			<div class="cell" id=" 1" ontouchstart="set_char(this.innerHTML+'1');" ontouchend="this.style.background='white'"> </div>
-		</div>
+			<div class="input_container" id="z_2" style="display: none;">
+				<div class="cell" id="a1" ontouchstart="set_char(this.innerHTML+'1');" ontouchend="this.style.background='white'">a</div>
+				<div class="cell" id="s1" ontouchstart="set_char(this.innerHTML+'1');" ontouchend="this.style.background='white'">s</div>
+				<div class="cell" id="d1" ontouchstart="set_char(this.innerHTML+'1');" ontouchend="this.style.background='white'">d</div>
+				<div class="cell" id="z" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">z</div>
+				<div class="cell" id="x" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">x</div>
+				<div class="cell" id="c" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">c</div>
+			</div>
+			
+			<div class="input_container" id="z_3" style="display: none;">
+				<div class="cell" id="t" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">t</div>
+				<div class="cell" id="y" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">y</div>
+				<div class="cell" id="u" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">u</div>
+				<div class="cell" id="f" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">f</div>
+				<div class="cell" id="g" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">g</div>
+				<div class="cell" id="h" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">h</div>
+			</div>
+		
+			<div class="input_container" id="z_4" style="display: none;">
+				<div class="cell" id="f1" ontouchstart="set_char(this.innerHTML+'1');" ontouchend="this.style.background='white'">f</div>
+				<div class="cell" id="g1" ontouchstart="set_char(this.innerHTML+'1');" ontouchend="this.style.background='white'">g</div>
+				<div class="cell" id="h1" ontouchstart="set_char(this.innerHTML+'1');" ontouchend="this.style.background='white'">h</div>
+				<div class="cell" id="v" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">v</div>
+				<div class="cell" id="b" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">b</div>
+				<div class="cell" id="n" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">n</div>
+			</div>
+		
+			<div class="input_container" id="z_5" style="display: none;">
+				<div class="cell" id="i" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">i</div>
+				<div class="cell" id="o" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">o</div>
+				<div class="cell" id="p" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">p</div>
+				<div class="cell" id="j" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">j</div>
+				<div class="cell" id="k" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">k</div>
+				<div class="cell" id="l" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">l</div>
+			</div>
+		
+			<div class="input_container" id="z_6" style="display: none;">
+				<div class="cell" id="j1" ontouchstart="set_char(this.innerHTML+'1');" ontouchend="this.style.background='white'">j</div>
+				<div class="cell" id="k1" ontouchstart="set_char(this.innerHTML+'1');" ontouchend="this.style.background='white'">k</div>
+				<div class="cell" id="l1" ontouchstart="set_char(this.innerHTML+'1');" ontouchend="this.style.background='white'">l</div>
+				<div class="cell" id="m" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">m</div>
+				<div class="cell" id="q" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">q</div>
+				<div class="cell" id=" 1" ontouchstart="set_char(this.innerHTML+'1');" ontouchend="this.style.background='white'"> </div>
+			</div>
 
-		<div class="input_container2" id="del_space" style="display: grid;">
-			<div class="cell2" id="del" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">del</div>
-			<div class="cell2" id=" " ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'"> </div>
+			<div class="input_container2" id="del_space" style="display: grid;">
+				<div class="cell2" id="del" ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'">del</div>
+				<div class="cell2" id=" " ontouchstart="set_char(this.innerHTML);" ontouchend="this.style.background='white'"> </div>
+			</div>
 		</div>
 	</div>
 

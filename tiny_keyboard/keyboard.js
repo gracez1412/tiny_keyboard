@@ -76,26 +76,50 @@ function change_color (old_z, new_z)
 		case 1:
 			for (var i = 1; i <= 6; i++)
 				document.getElementById("c_" + i.toString()).style.background = "white";
+			document.getElementById("TRBL").style.background = "white";
+			document.getElementById("TLBR").style.background = "white";
+			document.getElementById("TRBL").parentElement.style.background = "white";
+			document.getElementById("TLBR").parentElement.style.background = "white";
 			break;
 		case 2:
 		for (var i = 4; i <= 9; i++)
 				document.getElementById("c_" + i.toString()).style.background = "white";
+			document.getElementById("BRTL").style.background = "white";
+			document.getElementById("BLTR").style.background = "white";
+			document.getElementById("BRTL").parentElement.style.background = "white";
+			document.getElementById("BLTR").parentElement.style.background = "white";
 			break;
 		case 3:
 			for (var i = 10; i <= 15; i++)
 				document.getElementById("c_" + i.toString()).style.background = "white";
-			break;
+			document.getElementById("TRBL").style.background = "white";
+			document.getElementById("TLBR").style.background = "white";
+			document.getElementById("TRBL").parentElement.style.background = "white";
+			document.getElementById("TLBR").parentElement.style.background = "white";
+				break;
 		case 4:
 			for (var i = 13; i <= 18; i++)
 				document.getElementById("c_" + i.toString()).style.background = "white";
+			document.getElementById("BRTL").style.background = "white";
+			document.getElementById("BLTR").style.background = "white";
+			document.getElementById("BRTL").parentElement.style.background = "white";
+			document.getElementById("BLTR").parentElement.style.background = "white";
 			break;
 		case 5:
 			for (var i = 19; i <= 24; i++)
 				document.getElementById("c_" + i.toString()).style.background = "white";
+			document.getElementById("TRBL").style.background = "white";
+			document.getElementById("TLBR").style.background = "white";
+			document.getElementById("TRBL").parentElement.style.background = "white";
+			document.getElementById("TLBR").parentElement.style.background = "white";
 			break;
 		case 6:
 			for (var i = 22; i <= 27; i++)
 				document.getElementById("c_" + i.toString()).style.background = "white";
+			document.getElementById("BRTL").style.background = "white";
+			document.getElementById("BLTR").style.background = "white";
+			document.getElementById("BRTL").parentElement.style.background = "white";
+			document.getElementById("BLTR").parentElement.style.background = "white";
 			break;
 	}
 
@@ -104,26 +128,50 @@ function change_color (old_z, new_z)
 		case 1:
 			for (var i = 1; i <= 6; i++)
 				document.getElementById("c_" + i.toString()).style.background = "#98FB98";
+			document.getElementById("TRBL").style.background = "#98FB98";
+			document.getElementById("TLBR").style.background = "#98FB98";
+			document.getElementById("TRBL").parentElement.style.background = "#98FB98";
+			document.getElementById("TLBR").parentElement.style.background = "#98FB98";
 			break;
 		case 2:
 		for (var i = 4; i <= 9; i++)
 				document.getElementById("c_" + i.toString()).style.background = "#98FB98";
+			document.getElementById("BRTL").style.background = "#98FB98";
+			document.getElementById("BLTR").style.background = "#98FB98";
+			document.getElementById("BRTL").parentElement.style.background = "#98FB98";
+			document.getElementById("BLTR").parentElement.style.background = "#98FB98";
 			break;
 		case 3:
 			for (var i = 10; i <= 15; i++)
 				document.getElementById("c_" + i.toString()).style.background = "#98FB98";
+			document.getElementById("TRBL").style.background = "#98FB98";
+			document.getElementById("TLBR").style.background = "#98FB98";
+			document.getElementById("TRBL").parentElement.style.background = "#98FB98";
+			document.getElementById("TLBR").parentElement.style.background = "#98FB98";
 			break;
 		case 4:
 			for (var i = 13; i <= 18; i++)
 				document.getElementById("c_" + i.toString()).style.background = "#98FB98";
+			document.getElementById("BRTL").style.background = "#98FB98";
+			document.getElementById("BLTR").style.background = "#98FB98";
+			document.getElementById("BRTL").parentElement.style.background = "#98FB98";
+			document.getElementById("BLTR").parentElement.style.background = "#98FB98";
 			break;
 		case 5:
 			for (var i = 19; i <= 24; i++)
 				document.getElementById("c_" + i.toString()).style.background = "#98FB98";
+			document.getElementById("TRBL").style.background = "#98FB98";
+			document.getElementById("TLBR").style.background = "#98FB98";
+			document.getElementById("TRBL").parentElement.style.background = "#98FB98";
+			document.getElementById("TLBR").parentElement.style.background = "#98FB98";
 			break;
 		case 6:
 			for (var i = 22; i <= 27; i++)
 				document.getElementById("c_" + i.toString()).style.background = "#98FB98";
+			document.getElementById("BRTL").style.background = "#98FB98";
+			document.getElementById("BLTR").style.background = "#98FB98";
+			document.getElementById("BRTL").parentElement.style.background = "#98FB98";
+			document.getElementById("BLTR").parentElement.style.background = "#98FB98";
 			break;
 	}
 }
@@ -453,4 +501,19 @@ window.addEventListener('load',
 
 							for (var i = 10; i <= 15; i++)
 								document.getElementById("c_" + i.toString()).style.background = "#98FB98";
+
+							document.getElementById("up").style.background = "#98FB98";
+							document.getElementById("down").style.background = "#98FB98";
+							document.getElementById("left").style.background = "#98FB98";
+							document.getElementById("right").style.background = "#98FB98";
+							document.getElementById("up").parentElement.style.background = "#98FB98";
+							document.getElementById("down").parentElement.style.background = "#98FB98";
+							document.getElementById("left").parentElement.style.background = "#98FB98";
+							document.getElementById("right").parentElement.style.background = "#98FB98";
+
+							document.getElementById("TRBL").style.background = "#98FB98";
+							document.getElementById("TLBR").style.background = "#98FB98";
+							document.getElementById("TRBL").parentElement.style.background = "#98FB98";
+							document.getElementById("TLBR").parentElement.style.background = "#98FB98";
+						
 						}, false)
